@@ -1,2 +1,8 @@
-CREATE VM
-CREATE 3 VMS(2 slave nodes) and authenicate using private and public key
+create VM
+create 3 VMS(2 slave nodes) and authenicate using private and public key
+create an image and push it into docker hub using jenkins(using docker file)
+Install kuberctl
+create a deployment using .yml file
+create a service using .yml file (networking)
+rollupdate the deployment
+rollback the update
