@@ -1,0 +1,61 @@
+https://github.com/edureka-git/DevOpsClassCodes
+
+
+Volume mounting
+
+
+try this command to mount
+docker run -itd --name  my_container -v /root/mydata:/root(actual data path:docker path) ubuntu   - to mount docker on a volume
+
+get in to the container and got to root the files will be available there
+
+Creating image
+
+docker commit my_container myimage  - to create the image of the container
+
+docker history imageNmae  -  to view the size
+
+docker logs website  - to view logs
+
+docker tag myimage sachinvarghese333:/bootcampImage (oldname newname)
+
+
+
+
+Dockerfile
+
+
+docker build . -t sachinvarghese333/bootcamp-myapp   -  to build the image 
+
+
+CMD - to run 
+
+
+
+Steps to deploy in Tomcat(in /usr/local/tomcat/webapp)
+
+copy war file to tomcat from /var/lib/jenkins/workspace/bootcamp-package/target
+
+
+VISUDO
+
+use visudo to add sudo permission to user
+
+
+
+Docker Swarm
+
+docker swarm init --advertise-addr 10.160.0.10(master internal ip)
+
+
+CREATE SERVICES
+
+docker service create --name webservice  -p 80:80 nginx
+
+
+docker service scale webservice=10
+
+
+KUBERNETIS
+
+gcloud init  -  use the command to setup sdk
