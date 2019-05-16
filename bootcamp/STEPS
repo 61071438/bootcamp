@@ -1,0 +1,2 @@
+CREATE VM
+CREATE 3 VMS(2 slave nodes) and authenicate using private and public key
