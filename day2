@@ -1,0 +1,34 @@
+install nginx for config foe enabling port 80
+
+go to /etc/nginx/sites-available and edit default file
+
+https://github.com/npsoni88/tcsjenkins/blob/master/default
+
+jenkins uname:sachin  passwd:sachin
+
+groovy script for pipeline
+
+
+Docker
+
+docker ps - list the containers
+
+docker ps -a - list the running containers
+
+dokcer run - itd imageName - (-d detached mode ie comtainer runs in background)
+
+docker stop cname - to stop
+
+docker rm cname -to delete container
+
+docker rm -i  - to delete an image
+
+docker run -itd --name name imgName =to name the container
+
+docker run -itd --name tcs_container -p 80:80(host:container)  nginx  -to map the container
+
+
+docker exec -it tcs_container /bin/bash  -to get into the container from root
+
+ctr p + ctrl q  - to get out of container(dont use exit)
+
