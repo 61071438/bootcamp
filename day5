@@ -1,0 +1,63 @@
+gcloud container cluster delete k8s-cluster   - to delete the cluster
+
+ssh -vvv slavename - to describe the 
+
+
+apt-get install from ubuntu server - may be old versions try to download from officaial
+
+ANSIBLE
+
+
+/etc/ansible - ansible files
+
+edit hosts file and add servers (in [])
+
+ansible - m ping all - to test the servers 
+
+ansible got lot of modules like ping ,command
+
+ansible -m command -a "apt-get update" all   - runs the commands in all the servres
+
+ ansible -m user -a "name=bootcamp password=bootcamp" all
+
+cat /etc/passwd - to see all the users
+
+
+
+ ansible -m copy -a "src=/temp/ansiblefile dest=/tmp/" all   - copy to remote locations
+
+
+ansible -m setup dbservers  - to view details of the servers
+
+
+PLAYBOOK
+
+ansible-playbook playbookname.yml -to excecute playbook
+
+ ansible-playbook playbookname.yml --syntax-check  -to check syntax
+
+ ansible-playbook playbookname.yml --check  - check playbook without running
+
+
+
+which java - to find where java is installed
+
+ANSIBLE Galaxy  - to get the playbooks
+
+
+ROLES folder structure
+
+
+files
+handlers
+tasks
+vars
+
+
+ ansible-galaxy init filename  - to create folder structure
+
+
+
+Roles for sample application
+
+jinjer templating : 
