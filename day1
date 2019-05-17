@@ -1,0 +1,64 @@
+dpkg -l | grep git -to check wether it installed
+
+git config --global user.name "sachin varghese"
+
+git config --global user.email "sachinvarghese333@gmail.com"
+
+git init
+
+git status
+
+git log- for commit history
+git log --oneline - simpler view
+
+git add . -for commiting all uncommited files .denotes cd
+git commit -a -m "third commit" -if file is already added
+
+vim .gitignore  -add file names to be ignored
+
+git clean sheet
+netstat -anp |grep 8080 -to check port
+
+/etc/default/ vim jenkins - to change running port
+
+vim /etc/passwd  -to list the users
+
+
+Jobs
+
+1.compile
+2.test
+3.review
+4.metric check
+5.package
+6.deploy
+
+apt-get install -y maven
+
+Maven pmd - programmig mistake detector
+
+mvn pmd:pmd
+
+
+
+Key generation
+
+create user with username and password
+
+ssh-keygen -command to generate key
+
+key will be generated in .ssh folder under home/user or under root
+
+
+nodes(slaves) should have public key
+
+etc/ssh/ssh_config - to set key -permitRootlogin:yes
+
+then open authorized_keys(inside .ssh) and copy public key
+
+ping ipaddress - to ping the server
+
+ssh root@ipAddress - to login to slave from master - look for id_rsa private key(else use -i and mention path of id_rsa)
+
+etc/hosts - to rename ip with specific name
+
