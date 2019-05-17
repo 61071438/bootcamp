@@ -1,0 +1,212 @@
+https://github.com/edureka-git/DevOpsClassCodes
+
+
+Volume mounting
+
+
+try this command to mount
+docker run -itd --name  my_container -v /root/mydata:/root(actual data path:docker path) ubuntu   - to mount docker on a volume
+
+get in to the container and got to root the files will be available there
+
+Creating image
+
+docker commit my_container myimage  - to create the image of the container
+
+docker history imageNmae  -  to view the size
+
+docker logs website  - to view logs
+
+docker tag myimage sachinvarghese333:/bootcampImage (oldname newname)
+
+
+
+
+Dockerfile
+
+
+docker build . -t sachinvarghese333/bootcamp-myapp   -  to build the image 
+
+
+CMD - to run 
+
+
+
+Steps to deploy in Tomcat(in /usr/local/tomcat/webapp)
+
+copy war file to tomcat from /var/lib/jenkins/workspace/bootcamp-package/target
+
+
+VISUDO
+
+use visudo to add sudo permission to user
+
+
+
+Docker Swarm
+
+docker swarm init --advertise-addr 10.160.0.10(master internal ip)
+
+
+CREATE SERVICES
+
+docker service create --name webservice  -p 80:80 nginx
+
+
+docker service scale webservice=10
+
+
+KUBERNETIS
+
+gcloud init  -  use the command to setup sdk
+
+gcloud create k8s-cluster --zone-asia-south1-c  - to create cluster
+
+install kubectl for ubuntu
+
+
+kubectl create -f deployment.yml   - create pod or depolyment using yml file
+
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: sample-container
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: addressbookdeployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: addressbook
+    spec:
+      containers:
+      - name: addressbook-container
+        image: npsoni/tcsapp:8
+        ports:
+        - containerPort: 8080
+
+
+(the label should be used in app)
+
+
+
+service is used for networking
+
+
+Types of network
+
+Bridge - default nework for inter node communication
+host
+none
+
+
+The Kubernetes master will allocate a port from a range specified by --service-node-port-range flag (default: 30000-32767), 
+
+
+clusterIp and nodePort should have external load balancer
+
+ClusterIp
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: my-app
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+~                  
+
+
+NodePort
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  labels:
+    service: my-service
+spec:
+  selector:
+    app: my-app
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 31222
+    protocol: TCP
+
+
+
+
+
+LoadBlancer
+
+loadbalancer will provide an external ip which we can direclty hit
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service-balancer
+  labels:
+    service: my-service
+spec:
+  selector:
+    app: my-app
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080 #port which container is running
+    nodePort: 31222
+    protocol: TCP
+
+
+
+To see the logs
+kubectl describe pods addressbookdeployment-58fc486f56-2shfq
+
+
+ROLLING UPDATE
+
+to update yml file
+
+kubectl apply -f filename
+
+kubectl apply -f addressbook.yml --record   -to record the update
+
+kubectl rollout status deployment addressbookdeployment  - command to rollout
+
+kubectl get rs  - to view replica set
+
+kubectl rollout history deploy addressbookdeployment  - to view history
+
+
+                   
