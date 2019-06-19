@@ -32,3 +32,7 @@ docker exec -it tcs_container /bin/bash  -to get into the container from root
 
 ctr p + ctrl q  - to get out of container(dont use exit)
 
+Volume mounting
+
+docker run -u root -d --name jenkins --rm -d -p 80:8080 -p 50000:50000 -v /root/workspace/jenkins_home:/var/jenkins_home  -v var/run/docker
+.sock:/var/run/docker.sock  jenkinsci/jenkins
